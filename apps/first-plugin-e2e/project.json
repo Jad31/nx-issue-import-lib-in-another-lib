@@ -1,0 +1,16 @@
+{
+  "root": "apps/first-plugin-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/first-plugin-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "first-plugin:build",
+        "jestConfig": "apps/first-plugin-e2e/jest.config.js"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["first-plugin"]
+}

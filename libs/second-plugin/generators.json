@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "second-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "second-plugin": {
+      "factory": "./src/generators/second-plugin/generator",
+      "schema": "./src/generators/second-plugin/schema.json",
+      "description": "second-plugin generator"
+    }
+  }
+}

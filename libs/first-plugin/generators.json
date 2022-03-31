@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "first-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "first-plugin": {
+      "factory": "./src/generators/first-plugin/generator",
+      "schema": "./src/generators/first-plugin/schema.json",
+      "description": "first-plugin generator"
+    }
+  }
+}

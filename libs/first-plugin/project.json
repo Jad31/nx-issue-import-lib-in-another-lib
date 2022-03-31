@@ -1,0 +1,60 @@
+{
+  "root": "libs/first-plugin",
+  "sourceRoot": "libs/first-plugin/src",
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/first-plugin",
+        "main": "libs/first-plugin/src/index.ts",
+        "tsConfig": "libs/first-plugin/tsconfig.lib.json",
+        "assets": [
+          "libs/first-plugin/*.md",
+          {
+            "input": "./libs/first-plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/first-plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/first-plugin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/first-plugin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/first-plugin/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/first-plugin"],
+      "options": {
+        "jestConfig": "libs/first-plugin/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
